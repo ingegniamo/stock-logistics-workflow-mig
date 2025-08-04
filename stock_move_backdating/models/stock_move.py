@@ -38,6 +38,7 @@ class StockMove(models.Model):
                     date_backdating,
                     round=False,
                 )
+            price_unit = {self.env['stock.lot']: price_unit}
         return price_unit
 
     def _backdating_stock_valuation_layers(self):
