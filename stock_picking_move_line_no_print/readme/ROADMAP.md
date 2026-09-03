@@ -1,1 +1,0 @@
-- An extra module will be made as a glue for sale_stock.
