@@ -12,7 +12,8 @@ from odoo.tests import HttpCase, tagged
 
 from odoo.addons.portal.controllers import portal
 from odoo.addons.stock_picking_portal.controllers.portal import CustomerPortal
-from odoo.addons.website.tools import MockRequest
+# Odoo 19 moved MockRequest out of website.tools; http_routing owns it now.
+from odoo.addons.http_routing.tests.common import MockRequest
 
 
 @tagged("post_install", "-at_install")
@@ -52,7 +53,7 @@ class TestStockPickingPortal(HttpCase):
                     "email": user,
                     "name": user,
                     "password": user,
-                    "groups_id": [Command.set([portal_group.id])],
+                    "group_ids": [Command.set([portal_group.id])],
                 }
             )
         )

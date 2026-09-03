@@ -272,7 +272,8 @@ class CustomerPortal(portal.CustomerPortal):
 
     @http.route(
         ["/my/stock_operations/<int:operation_id>/accept"],
-        type="json",
+        # Odoo 19 deprecated type="json" as an alias of "jsonrpc".
+        type="jsonrpc",
         auth="public",
         website=True,
     )
